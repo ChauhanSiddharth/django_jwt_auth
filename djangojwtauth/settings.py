@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_swagger',
     'corsheaders',
     'notes',
     'jwtauth',
@@ -62,7 +63,8 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [                                
         "rest_framework.authentication.SessionAuthentication",       
         "rest_framework_simplejwt.authentication.JWTAuthentication", 
-    ],                  
+    ],      
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",            
     }
 
 CORS_ORIGIN_ALLOW_ALL = True                                               
@@ -136,3 +138,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'djangojwtauth/static'),
+]
