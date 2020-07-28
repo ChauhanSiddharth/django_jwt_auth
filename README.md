@@ -1,1 +1,2 @@
-"# django_jwt_auth" 
+# Django JSON Web Token Authentication Boilerplate
+
